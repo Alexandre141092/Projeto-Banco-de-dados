@@ -4,6 +4,38 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" edge="1" parent="1" source="s3XdrwTclrfu6EpU8hBe-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-1" value="Cliente" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="30" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-2" value="Produtos" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="30" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-3" value="Pedidos" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="19.999999999999996" y="255" width="188.25" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-6" value="Pgamentos" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="260" width="200" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;startFill=0;" edge="1" parent="1" source="s3XdrwTclrfu6EpU8hBe-8" target="s3XdrwTclrfu6EpU8hBe-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-8" value="possui" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="240" y="45" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-10" value="possui" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="260" y="255" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-12" value="possui" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="470" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s3XdrwTclrfu6EpU8hBe-15" value="possui" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="45" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
