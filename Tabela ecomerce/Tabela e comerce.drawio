@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.2.4" pages="4">
+  <diagram name="Cliente" id="UmR8ACqYKc_qg0LcvVXs">
+    <mxGraphModel dx="1044" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Produtos" id="iOF585ZFoPU1UQjNLxSq">
+    <mxGraphModel dx="1044" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="mM3quO2YNYjnplSvxt0W-0" />
+        <mxCell id="mM3quO2YNYjnplSvxt0W-1" parent="mM3quO2YNYjnplSvxt0W-0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Pedidos" id="Wa_hnf1ZYuojsuBynrCD">
+    <mxGraphModel dx="1044" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="Oue1rIASBGWsBMqxoRsL-0" />
+        <mxCell id="Oue1rIASBGWsBMqxoRsL-1" parent="Oue1rIASBGWsBMqxoRsL-0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Pagamentos" id="0YOQ5sCuYMp0gKeLzPXc">
+    <mxGraphModel dx="1044" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="t-0nRK9n-G9D_JlLMUD4-0" />
+        <mxCell id="t-0nRK9n-G9D_JlLMUD4-1" parent="t-0nRK9n-G9D_JlLMUD4-0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
