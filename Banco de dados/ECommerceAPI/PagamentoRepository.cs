@@ -1,7 +1,6 @@
 ﻿using EcommerceAPI.Context;
 using EcommerceAPI.interfaces;
 using EcommerceAPI.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceAPI.Repository
 {
@@ -48,7 +47,7 @@ namespace EcommerceAPI.Repository
 
             if (pagamentoEncontrado == null)
             {
-                throw new ArgumentNullException("Pagamento nao encontrado");
+                throw new Exception();
             }
 
             _context.Pagamentos.Remove(pagamentoEncontrado);
@@ -58,9 +57,7 @@ namespace EcommerceAPI.Repository
 
         public List<Pagamento> ListarTodos()
         {
-            return _context.Pagamentos
-                .Include(p => p.IdPedidoNavigation)
-                .ToList();
+            return _context.Pagamentos.ToList();
         }
     }
 }

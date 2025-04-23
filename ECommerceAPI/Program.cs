@@ -12,11 +12,11 @@ builder.Services.AddSwaggerGen();
 //AddTransient - OC# criar uma estancia nova, toda vez em que o metodo e chamado
 //AddScoped - OC# cria uma instancia nova,  toda vez que criar um controller
 //AddSingleton - 
-builder.Services.AddScoped<EcommerceContext, EcommerceContext>();
+builder.Services.AddDbContext<EcommerceContext, EcommerceContext>();
 builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<IPagamentosRepository, PagamentoRepository>();
-
+builder.Services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
 
 var app = builder.Build();
 

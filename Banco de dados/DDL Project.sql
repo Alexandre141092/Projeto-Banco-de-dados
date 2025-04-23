@@ -10,10 +10,10 @@ VALUES
 ('Teclado', 'Teclado Dell', 209.50, 100, 'Informatica', '')
 
 
-INSERT INTO Cliente (NomeCompleto, Email, Telefone, Endereco, DataCdastro)
+INSERT INTO Cliente (NomeCompleto, Email, Telefone, Endereco, DataCdastro, Senha)
 VALUES
-('Vinicio Santos', 'Vinicio@senai.br', '(11) 999944444', 'Rua niteroi 180, - sao paulo', '05/04/2022'),
-('Saulo santos', 'SAulo@senai.br', '(11) 25421104', 'Rua niteroi 250, - sao paulo', '05/05/2018')
+('Vinicio Santos', 'Vinicio@senai.br', '(11) 999944444', 'Rua niteroi 180, - sao paulo', '05/04/2022','13456'),
+('Saulo santos', 'SAulo@senai.br', '(11) 25421104', 'Rua niteroi 250, - sao paulo', '05/05/2018', '141098')
 
 INSERT INTO Pedido (IdCliente, DataPedido, Status, ValorTotal)
 VALUES
