@@ -1,35 +1,32 @@
-﻿using EcommerceAPI.Context;
-using EcommerceAPI.DTO;
+﻿using EcommerceAPI.DTO;
 using EcommerceAPI.interfaces;
 using EcommerceAPI.Models;
-using EcommerceAPI.Repository;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProdutoController : ControllerBase
+
+    public class PedidoControllers : ControllerBase
     {
+        private IPedidoRepository _pedidoRepository;
 
-        private IProdutoRepository _produtoRepository;
-
-        public ProdutoController(IProdutoRepository produtoRepository)
+        public PedidoControllers(IPedidoRepository pedidoRepository)
         {
 
-            _produtoRepository = produtoRepository;
+            _pedidoRepository = pedidoRepository;
         }
 
         [HttpGet]
-        public IActionResult ListarProdutos()
+        public IActionResult ListarPedido()
         {
-            return Ok(_produtoRepository.ListarTodos());
+            return Ok(_pedidoRepository.ListarTodos());
         }
         [HttpPost]
-        public IActionResult CadastrarPedido(CadastrarProdutoDTO item)
+        public IActionResult CadastrarPedido(cadastrarPedido item)
         {
-            _produtoRepository.Cadastrar(item);
+            _pedidoRepository.Cadastrar(item);
 
             return Created();
         }
@@ -40,22 +37,22 @@ namespace EcommerceAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult ListarPorId(int id)
         {
-            Produto produto = _produtoRepository.BuscarPOId(id);
+            Pedido pedido = _pedidoRepository.BuscarPOId(id);
 
-            if (produto == null)
+            if (pedido == null)
             {
                 return NotFound();
             }
-            return Ok(produto);
+            return Ok(pedido);
         }
         [HttpPut("{id}")]
 
-        public IActionResult Editar(int id, Produto prod)
+        public IActionResult Editar(int id, Pedido pedido)
         {
             try
             {
-                _produtoRepository.Atualizar(id, prod);
-                return Ok(prod);
+                _pedidoRepository.Atualizar(id, pedido);
+                return Ok(pedido);
             }
             catch (Exception ex)
             {
@@ -68,17 +65,17 @@ namespace EcommerceAPI.Controllers
         {
             try
             {
-                _produtoRepository.Deletar(id);
+                _pedidoRepository.Deletar(id);
 
                 return NoContent();
             }
-           // Caso de erro
+            // Caso de erro
             catch (Exception ex)
             {
-                return NotFound("Produto nao encontrado");
+                return NotFound("Pedido nao encontrado");
             }
 
-
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EcommerceAPI.Context;
+using EcommerceAPI.DTO;
 using EcommerceAPI.interfaces;
 using EcommerceAPI.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
@@ -52,9 +53,21 @@ namespace EcommerceAPI.Repository
             return _context.Produtos.FirstOrDefault(p => p.IdProduto==id);
         }
 
-        public void Cadastrar(Produto produto)
+        public void Cadastrar(CadastrarProdutoDTO produto)
         {
-            _context.Produtos.Add(produto);
+            Produto produtoCadastro = new Produto
+            {
+                Nome = produto.Nome,
+                Descricao = produto.Descricao,
+                Preco = produto.Preco,
+                EstoqueDisponivel = produto.EstoqueDisponivel,
+                Categoria = produto.Categoria,
+                Imagem = produto.Imagem
+            };
+
+
+
+            _context.Produtos.Add(produtoCadastro);
             _context.SaveChanges();
         }
 

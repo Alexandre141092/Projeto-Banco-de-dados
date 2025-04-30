@@ -1,18 +1,12 @@
 [
   {
     "ContainingType": "EcommerceAPI.Controllers.ClienteController",
-    "Method": "ListarProdutos",
+    "Method": "ListarTodos",
     "RelativePath": "api/Cliente",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "cliente",
-        "Type": "EcommerceAPI.Models.Cliente",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -25,28 +19,7 @@
     "Parameters": [
       {
         "Name": "item",
-        "Type": "EcommerceAPI.Models.Cliente",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EcommerceAPI.Controllers.ClienteController",
-    "Method": "Login",
-    "RelativePath": "api/Cliente/{email}/{senha}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "senha",
-        "Type": "System.String",
+        "Type": "EcommerceAPI.DTO.CadastrarClienteDTO",
         "IsRequired": true
       }
     ],
@@ -106,6 +79,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EcommerceAPI.Controllers.ClienteController",
+    "Method": "Login",
+    "RelativePath": "api/Cliente/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "EcommerceAPI.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EcommerceAPI.Controllers.ItemPedidoController",
     "Method": "ListarProdutos",
     "RelativePath": "api/ItemPedido",
@@ -135,7 +124,7 @@
     "Parameters": [
       {
         "Name": "item",
-        "Type": "EcommerceAPI.Models.Pagamento",
+        "Type": "EcommerceAPI.DTO.CadastrarPagamentoDTO",
         "IsRequired": true
       }
     ],
@@ -195,6 +184,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EcommerceAPI.Controllers.PedidoControllers",
+    "Method": "ListarPedido",
+    "RelativePath": "api/PedidoControllers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceAPI.Controllers.PedidoControllers",
+    "Method": "CadastrarPedido",
+    "RelativePath": "api/PedidoControllers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "item",
+        "Type": "EcommerceAPI.interfaces.cadastrarPedido",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceAPI.Controllers.PedidoControllers",
+    "Method": "ListarPorId",
+    "RelativePath": "api/PedidoControllers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceAPI.Controllers.PedidoControllers",
+    "Method": "Editar",
+    "RelativePath": "api/PedidoControllers/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pedido",
+        "Type": "EcommerceAPI.Models.Pedido",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceAPI.Controllers.PedidoControllers",
+    "Method": "Deletar",
+    "RelativePath": "api/PedidoControllers/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EcommerceAPI.Controllers.ProdutoController",
     "Method": "ListarProdutos",
     "RelativePath": "api/Produto",
@@ -214,7 +282,7 @@
     "Parameters": [
       {
         "Name": "item",
-        "Type": "EcommerceAPI.Models.Produto",
+        "Type": "EcommerceAPI.DTO.CadastrarProdutoDTO",
         "IsRequired": true
       }
     ],
@@ -268,6 +336,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceAPI.Controllers.ClienteController",
+    "Method": "BuscarPorNome",
+    "RelativePath": "buscar/{nome}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nome",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

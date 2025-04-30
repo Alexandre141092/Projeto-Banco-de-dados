@@ -1,4 +1,5 @@
 ﻿using EcommerceAPI.Context;
+using EcommerceAPI.DTO;
 using EcommerceAPI.interfaces;
 using EcommerceAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -36,9 +37,18 @@ namespace EcommerceAPI.Repository
            
         }
 
-        public void Cadastrar(Pagamento pagamento)
+        public void Cadastrar(CadastrarPagamentoDTO pagamento)
         {
-            _context.Pagamentos.Add(pagamento);
+            Pagamento cadastrarPagamento = new Pagamento
+            {
+                IdPedido = pagamento.IdPedido,
+                FormaPagamento = pagamento.FormaPagamento,
+                StatusPagamento = pagamento.StatusPagamento,
+                DataPagamnento = pagamento.DataPagamnento
+
+            };
+
+            _context.Pagamentos.Add(cadastrarPagamento);
             _context.SaveChanges();
         }
 

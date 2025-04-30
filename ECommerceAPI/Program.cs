@@ -1,7 +1,10 @@
+using System.Text;
 using EcommerceAPI.Context;
 using EcommerceAPI.interfaces;
 using EcommerceAPI.Models;
 using EcommerceAPI.Repository;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,9 +21,29 @@ builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<IPagamentosRepository, PagamentoRepository>();
 builder.Services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
 
+builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", static options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "ecommerce",
+        ValidAudience = "ecommerce",
+        IssuerSigningKey = new SimmetricSecuritykey
+        (Encoding.UTF8.GetBytes("minha-chave-secreta-senai"))
+    };
+});
+
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 app.MapControllers();
+
+app.UseAuthentication();
+app.UseAuthentication();
 
 app.UseSwagger();
 

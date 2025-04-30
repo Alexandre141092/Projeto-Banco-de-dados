@@ -1,4 +1,5 @@
-﻿using EcommerceAPI.Models;
+﻿using EcommerceAPI.DTO;
+using EcommerceAPI.Models;
 
 namespace EcommerceAPI.interfaces
 {
@@ -12,7 +13,7 @@ namespace EcommerceAPI.interfaces
 
         // C - Create (Cadastro)
 
-        void Cadastrar(Produto produto);
+        void Cadastrar(CadastrarProdutoDTO produto);
 
         //U - Update (Atualizacao)
         //Recebe um identificador para encontrar um produto, e recebe o produtonovo para substituir o antigo

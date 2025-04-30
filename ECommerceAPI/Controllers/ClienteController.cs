@@ -1,7 +1,10 @@
 ﻿using EcommerceAPI.Context;
+using EcommerceAPI.DTO;
 using EcommerceAPI.interfaces;
 using EcommerceAPI.Models;
 using EcommerceAPI.Repository;
+using EcommerceAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,19 +17,23 @@ namespace EcommerceAPI.Controllers
 
         private IClienteRepository _clienteRepository;
 
-        public ClienteController(ClienteRepository clienteRepository)
+        private PasswordService _passwordService = new PasswordService();
+
+        public ClienteController(IClienteRepository clienteRepository)
         {
 
             _clienteRepository = clienteRepository;
         }
 
         [HttpGet]
-        public IActionResult ListarProdutos(Cliente cliente)
+        [Authorize]
+        
+        public IActionResult ListarTodos()
         {
             return Ok(_clienteRepository.ListarTodos());
         }
         [HttpPost]
-        public IActionResult CadastrarPedido(Cliente item)
+        public IActionResult CadastrarPedido(CadastrarClienteDTO item)
         {
             _clienteRepository.Cadastrar(item);
 
@@ -75,18 +82,31 @@ namespace EcommerceAPI.Controllers
             {
                 return NotFound("Cliente nao encontrado");
             }
-          
-        }// /api/vini@senai/
-        [HttpGet("{email}/{senha}")]
-        public IActionResult Login(string email, string senha)
+        }
+        [HttpGet("/buscar/{nome}")]
+
+        public IActionResult BuscarPorNome(string nome)
         {
-            var cliente = _clienteRepository.BuscarPOEmailSenha(email, senha);
+            return Ok(_clienteRepository.BuscarClientePorNome(nome));
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login(LoginDTO login)
+        {
+            var cliente = _clienteRepository.BuscarPOEmailSenha(login.Email, login.Senha);
             if (cliente == null)
             {
-                return NotFound();
+                return Unauthorized("Email ou Senha invalido");
             }
-            return Ok(cliente);
-        }   
 
+            var tokenService = new TokenService();
+
+            var token = tokenService.GenerateToken(cliente.Email);
+
+
+            return Ok(token);
+        }
     }
+
+    
 }

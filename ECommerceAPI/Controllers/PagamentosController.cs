@@ -1,4 +1,5 @@
 ﻿using EcommerceAPI.Context;
+using EcommerceAPI.DTO;
 using EcommerceAPI.interfaces;
 using EcommerceAPI.Models;
 using EcommerceAPI.Repository;
@@ -28,7 +29,7 @@ namespace EcommerceAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarPedido(Pagamento item)
+        public IActionResult CadastrarPedido(CadastrarPagamentoDTO item)
         {
             _pagamentoRepository.Cadastrar(item);
 
