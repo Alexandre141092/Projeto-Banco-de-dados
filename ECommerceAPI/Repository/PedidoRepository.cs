@@ -1,4 +1,5 @@
-﻿using EcommerceAPI.DTO;
+﻿using EcommerceAPI.Context;
+using EcommerceAPI.DTO;
 using EcommerceAPI.interfaces;
 using EcommerceAPI.Models;
 
@@ -6,29 +7,69 @@ namespace EcommerceAPI.Repository
 {
     public class PedidoRepository : IPedidoRepository
     {
+        private readonly EcommerceContext _context;
+
+        public PedidoRepository(EcommerceContext context)
+        {
+            _context = context; 
+        }
+
         public void Atualizar(int id, Pedido Pedido)
         {
-            throw new NotImplementedException();
+            Pedido PediddoEcontrado = _context.Pedidos.Find(id);
+            {
+                if (PediddoEcontrado == null)
+                {
+                    throw new Exception();
+                }
+
+                _context.SaveChanges();
+
+            }
+
+          
+
+           
         }
 
         public Pedido BuscarPOId(int id)
         {
-            throw new NotImplementedException();
+            return _context.Pedidos.FirstOrDefault(p => p.IdPedido == id);
         }
 
-        public void Cadastrar(cadastrarPedido pedido)
+        public void Cadastrar(CadastrarPedidoDTO pedido)
         {
-            throw new NotImplementedException();
+            Pedido CadastrarPedido = new Pedido
+            {
+                IdPedido = pedido.IdPedido,
+                DataPedido = pedido.DataPedido,
+                Status = pedido.Status,
+                ValorTotal = pedido.ValorTotal,
+                IdCliente = pedido.IdCliente,
+
+            };
+
+            _context.Pedidos.Add(CadastrarPedido);
+            _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Pedido pedidoEncontrado = _context.Pedidos.Find(id);
+            {
+                if(pedidoEncontrado == null)
+                {
+                    throw new ArgumentNullException("Pedido não encontrado");
+                }
+
+                _context.Pedidos.Remove(pedidoEncontrado);
+                _context.SaveChanges();
+            }
         }
 
         public List<Pedido> ListarTodos()
         {
-            throw new NotImplementedException();
+            return  _context.Pedidos.ToList();
         }
     }
 }

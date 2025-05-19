@@ -24,7 +24,7 @@ namespace EcommerceAPI.Controllers
             return Ok(_pedidoRepository.ListarTodos());
         }
         [HttpPost]
-        public IActionResult CadastrarPedido(cadastrarPedido item)
+        public IActionResult CadastrarPedido(CadastrarPedidoDTO item)
         {
             _pedidoRepository.Cadastrar(item);
 

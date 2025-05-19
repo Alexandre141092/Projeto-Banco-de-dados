@@ -9,7 +9,7 @@ namespace EcommerceAPI.interfaces
 
         Pedido BuscarPOId(int id);
 
-        void Cadastrar(cadastrarPedido pedido);
+        void Cadastrar(CadastrarPedidoDTO pedido);
 
         void Atualizar(int id, Pedido Pedido);
 
